@@ -1,0 +1,5 @@
+find_package(CGAL REQUIRED COMPONENTS Core)
+add_executable(point_set_read_xyz point_set_read_xyz.cpp)
+add_executable(draw_point_set draw_point_set.cpp)
+target_link_libraries(point_set_read_xyz CGAL::CGAL CGAL::CGAL_Core)
+target_link_libraries(draw_point_set CGAL::CGAL CGAL::CGAL_Core CGAL::CGAL_Basic_viewer)
