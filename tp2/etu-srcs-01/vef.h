@@ -2,7 +2,7 @@
 #define VEF_H
 
 using namespace std;
-
+typedef tuple<tuple<double, double, double> , tuple<int, int, int>, tuple<int, int, int>> megatuple;
 struct vef_vertex{
   int ind;
   vector<double> coordinates;
@@ -30,6 +30,9 @@ struct vef{
 
 extern tuple <int, int, int>  vef_from_wavefront(struct vef &vef, const char* file_name);
 extern int vef_to_vef(struct vef &v_e_f, const char* file_name);
- 
-
+extern tuple <int, int> read_wavefront(const char* file_name, vector<vector<double>> &vertices, vector<vector<int>> &faces);
+extern void construct_edges(vector<tuple<int, int, int>> &edges_v, vector<vector<tuple<int, int>>> &edges_f, vector<vector<int>> &faces);
+void construct_faces(vector<vector<tuple<int, int, int, int>>> &face_e_f, vector<vector<tuple<int, int>>> &edges_f, vector<vector<int>> &faces);
+void construct_vertices(vector<tuple<tuple<double, double, double> , tuple<int, int, int>, tuple<int, int, int>>> &vertex_f_e,
+vector<vector<double>> &vertices, vector<vector<tuple<int, int>>> &edges_f, vector<vector<tuple<int, int, int, int>>> &face_e_f);
 #endif /*  VEF_H */

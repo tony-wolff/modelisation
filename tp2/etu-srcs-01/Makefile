@@ -6,7 +6,7 @@ SRC = $(patsubst %, %.cpp, $(FILES))
 OBJ = $(patsubst %, %.o, $(FILES))
 
 HDR = $(patsubst %, -include %.h, $(FILES))
-CXX = g++ -Wall
+CXX = g++ -Wall -DDEBUG -g
 
 %.o : %.cpp
 	$(CXX) $(HDR) -c -o $@ $<
